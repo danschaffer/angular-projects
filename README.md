@@ -28,3 +28,12 @@ creating first app
     ng serve --host 0.0.0.0
 
 - browse to: http://localhost:4200
+
+generate components
+-------------------
+
+- component
+    ng generate component stock/stock-item
+- class
+    ng generate class model/stock
+
