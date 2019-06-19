@@ -1,0 +1,9 @@
+<div class="product-container" [class]="product.onsale ? 'product-onsale' : 'product-normal'">
+  <div><h3>{{product.name}} | ${{product.price}}</h3></div>
+  <div><h4>quantity {{product.amount}} | total {{product.get_total()}}</h4></div>
+  <div>
+    <button (click)="product.add()">add</button>
+    <button (click)="product.remove()" [disabled]="!product.amount">remove</button>
+  </div>
+  <div><img src="{{product.image}}"></div>
+</div>
