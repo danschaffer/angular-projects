@@ -1,9 +1,13 @@
-<div class="product-container" [class]="product.onsale ? 'product-onsale' : 'product-normal'">
+<div class="product-container"
+     *ngFor="let product of products; index as i"
+     [class.product-onsale]="product.onsale"
+     [class.product-normal]="!product.onsale"
+>
   <div><h3>{{product.name}} | ${{product.price}}</h3></div>
   <div><h4>quantity {{product.amount}} | total {{product.get_total()}}</h4></div>
   <div>
     <button (click)="product.add()">add</button>
-    <button (click)="product.remove()" [disabled]="!product.amount">remove</button>
+    <button *ngIf="product.amount" (click)="product.remove()">remove</button>
   </div>
-  <div><img src="{{product.image}}"></div>
+  <div><img src="{{product.image}}" width=300 height=200></div>
 </div>

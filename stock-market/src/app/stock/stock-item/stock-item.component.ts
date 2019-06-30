@@ -8,17 +8,17 @@ import { Stock } from '../../model/stock';
 })
 export class StockItemComponent implements OnInit {
 
-  public stock: Stock;
+  public stocks: Array<Stock>;
 
   constructor() { }
 
   ngOnInit() {
-    this.stock = new Stock('Test Stock Company', 'TSC', 75, 80);
+    this.stocks = [
+      new Stock('Nasdaq Index', '.NASQ', 5100, 5090),
+      new Stock('Dow Jones Index', '.DJI', 26900, 26500),
+      new Stock('Adobe Systems', 'ADBE', 292, 295),
+      new Stock('Google', 'GOOG', 1090, 1100),
+      new Stock('Facebook', 'FB', 300, 320),
+    ];
   }
-
-  toggleFavorite(event) {
-    this.stock.favorite = !this.stock.favorite;
-    console.log('toggling favorite state to ' + this.stock.favorite + ' event ', event);
-  }
-
 }
