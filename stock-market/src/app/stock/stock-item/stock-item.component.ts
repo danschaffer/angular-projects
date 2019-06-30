@@ -14,17 +14,13 @@ export class StockItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.stock = new Stock('Test Stock Company', 'TSC', 75, 80);
+    this.stock = new Stock('Test Stock Company', 'TSC', 75, 20);
     let diff = (this.stock.price / this.stock.previousPrice) - 1;
-    console.log(diff);
     let largeChange = Math.abs(diff) > 0.1;
-    this.stockClasses = {
-        "positive": this.stock.isPositiveChange(),
-        "negative": !this.stock.isPositiveChange(),
-        "large-change": largeChange,
-        "small-change": !largeChange
+    this.stockStyles = {
+        "color": this.stock.isPositiveChange() ? "green" : "red",
+        "font-size": largeChange ? "1.2em" : "0.8em"
     };
-    console.log(this.stockClasses);
   }
 
   toggleFavorite(event) {
